@@ -44,11 +44,16 @@
 }
 
 .nav a:hover {
-    text-decoration-line: underline;
+    color: #58ACFF;
+}
+.nav a:active {
+    color: rgba(61, 107, 153, 1);
 }
 
 .nav a.active {
-    color: #58ACFF;
+    color: rgba(0, 89, 178, 1);
+    text-decoration: underline;
+
 }
 
 .close {
