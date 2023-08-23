@@ -13,8 +13,8 @@
        Если задать значение none, то чекбокс пропадет, но по нему, тем не менее,
        можно щелкать и состояние чекбокса будет меняться*/
 
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
 
     background-repeat: no-repeat;
     background-position: center center;
