@@ -9,9 +9,9 @@ export const homeWorkReducer = (state: UserType[], action: ActionType): UserType
         case 'sort': { // by name
             const copy = [...state]
             if (action.payload === 'up') {
-                copy.sort()
+                copy.sort((a,b) => (a.name > b.name) ? 1 : -1 )
             } else {
-                copy.sort()
+                copy.sort((a,b) => (a.name > b.name) ? -1 : 1 )
             }
             return copy // need to fix
         }
