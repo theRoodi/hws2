@@ -42,7 +42,7 @@ function Clock() {
         weekday: 'long'
     }).format(date) || <br/> // пишут студенты
     const stringMonth = new Intl.DateTimeFormat('en-US', {
-        month: 'short'
+        month: 'long'
     }).format(date) || <br/> // пишут студенты
 
     return (
