@@ -3,9 +3,10 @@
 
 .wrapper {
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
 }
 
 .number {
+    width: 28px;
 }
