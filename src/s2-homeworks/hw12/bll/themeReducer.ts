@@ -1,13 +1,10 @@
-import {Dispatch} from 'redux';
-
-const initState:InitType = {
+const initState: InitType = {
     themeId: 1
 }
 
 export type InitType = {
     themeId: number
 }
-
 
 
 type SetThemeType = {
@@ -17,9 +14,7 @@ type SetThemeType = {
 
 export type ActionType = SetThemeType
 
-export const themeReducer = (state = initState, action: ActionType): {
-    themeId: number
-} => { // fix any
+export const themeReducer = (state = initState, action: ActionType): InitType => { // fix any
     switch (action.type) {
         // дописать
         case 'SET_THEME_ID': {
@@ -35,6 +30,3 @@ export const themeReducer = (state = initState, action: ActionType): {
 }
 
 export const changeThemeId = (id: number): SetThemeType => ({type: 'SET_THEME_ID', id}) // fix any
-export const ChangeThemeTC = (id: number) => (dispatch: Dispatch) => {
-    dispatch(changeThemeId(id))
-}
