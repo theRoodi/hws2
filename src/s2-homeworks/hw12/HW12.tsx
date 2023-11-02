@@ -13,11 +13,18 @@ import {AppStoreType} from '../hw10/bll/store';
 * 4 - передать пропсы в SuperSelect
 * */
 
-const themes = [
+const themes: ThemesType = [
     {id: 1, value: 'light'},
     {id: 2, value: 'blue'},
     {id: 3, value: 'dark'},
 ]
+
+export type ThemeType = {
+    id: number
+    value: string
+}
+
+export type ThemesType = Array<ThemeType | number>
 
 
 const HW12 = () => {
