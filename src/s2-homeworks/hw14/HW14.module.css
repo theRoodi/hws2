@@ -1,7 +1,14 @@
 .tech {
-
+    display: flex;
+}
+.tech:last-child{
+    margin-bottom: 120px;
 }
 
 .loading {
-
+    display: flex;
+    margin-left: 330px;
+    font-size: 14px;
+    font-weight: 300;
+    align-content: end;
 }
