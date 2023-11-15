@@ -1,27 +1,95 @@
 .tech {
-    width: 50vw;
+    max-width: 505px;
+    width: 505px;
+    font-weight: 400;
+    font-size: 16px;
 }
 
 .developer {
-
+    max-width: 505px;
+    width: 505px;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .techHeader {
-    width: 50vw;
+    max-width: 505px;
+    width: 505px;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 5px;
 }
 
 .developerHeader {
-
+    font-size: 14px;
+    max-width: 505px;
+    width: 505px;
+    font-weight: bold;
+    padding-right: 5px;
 }
 
 .row {
+    max-width: 1010px;
     display: flex;
+    padding: 9px 17px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.row:last-child {
+    margin-bottom: 225px;
 }
 
 .rowHeader {
+    max-width: 1010px;
     display: flex;
+    background-color: #E5E5E5;
+    padding: 9px 17px;
 }
 
 .loading {
+    position: absolute;
+    font-size: 10px;
+    margin: 100px 400px;
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: url("../hw15/common/assets/loading.png") no-repeat;
+    animation: load 1.4s infinite linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
 
+.loadingBackground {
+    position: absolute;
+    width: 1010px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.imgNone {
+    margin: 0 5px;
+    width: 8px;
+    height: 12px;
+}
+
+.imgSort {
+    align-items: center;
+    margin: 0 5px;
+    width: 8px;
+    height: 6px;
 }

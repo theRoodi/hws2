@@ -23,8 +23,8 @@ type TechType = {
 
 const getTechs = (params: any) => {
     return axios
-        .get<{ techs: TechType[], totalCount: number }>(
-            'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test3',
+        .get<{ techs: TechType[], totalCount: number }, any>(
+            'https://samurai.it-incubator.io/api/3.0/homework/test3',
             {params}
         )
         .catch((e) => {
@@ -36,32 +36,32 @@ const HW15 = () => {
     const [sort, setSort] = useState('')
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(4)
-    const [idLoading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState(false)
     const [totalCount, setTotalCount] = useState(100)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const sendQuery = (params: any) => {
+    const sendQuery = async (params: any) => {
         setLoading(true)
         getTechs(params)
-            .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+            .then(res => {
+                setTechs(res.data.techs)
+                setTotalCount(res.data.totalCount)
+                setLoading(false)
             })
+        // сохранить пришедшие данные
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
+        setPage(newPage)
+        setCount(newCount)
         // setPage(
         // setCount(
-
+        sendQuery({page: newPage, count: newCount})
         // sendQuery(
         // setSearchParams(
-
+        setSearchParams({sort})
         //
     }
 
@@ -69,11 +69,13 @@ const HW15 = () => {
         // делает студент
 
         // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        setSort(newSort)
+        setPage(1) // при сортировке сбрасывать на 1 страницу
 
         // sendQuery(
+        sendQuery({page: 1, count, sort: newSort})
         // setSearchParams(
-
+        setSearchParams({sort: newSort})
         //
     }
 
@@ -97,11 +99,14 @@ const HW15 = () => {
     ))
 
     return (
-        <div id={'hw15'}>
+        <div id={'hw15'} className={s2.hw}>
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+                {isLoading && <div id={'hw15-loading'}
+                                   className={s.loadingBackground}>
+                    <div id={'hw15-loading'} className={s.loading}></div>
+                </div>}
 
                 <SuperPagination
                     page={page}
@@ -112,12 +117,12 @@ const HW15 = () => {
 
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
-                        tech
+                        Tech
                         <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
                     </div>
 
                     <div className={s.developerHeader}>
-                        developer
+                        Developer
                         <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                     </div>
                 </div>
